@@ -16,7 +16,6 @@ for subject in subjects:
     deaths = subject['deaths']
     cured = subject['cured']
     confirmed = subject['confirmed']
-  #  print('Город:', cities, 'Заболевших = ', confirmed, 'Выписанных = ', cured,  'Умерших = ', deaths)
     mortality1 = float(deaths)/float(confirmed)
     try:
         mortality2 = float(deaths)/(float(cured)+float(deaths))
@@ -28,16 +27,15 @@ for subject in subjects:
     if len(citiess)==100:
         break
 
-listcities = list(zip(z1, citiess)) # Если z1 - считает смертность, если z2 - cчитает летальность
+listcities = list(zip(z1, citiess)) # If z1 - counts mortality1, if z2 - counts mortality2
 listcities.sort(key=lambda x: x[0])
 listcities = [x for x in listcities if x[0]]
 [ya.append(n[0]) for n in listcities]
 [xa.append(n[1]) for n in listcities]
 
 plt.bar(xa, ya) 
-print('ddfdfdf')
-plt.title('Смертность от Covid-19 в странах мира') # Если считается летальность, заменить "смертность" на "летальность"
-plt.xlabel('Наименование страны') # Если считается летальность, заменить "Смертность" на "Летальность"
-plt.ylabel('Смертность, %')
+plt.title('Covid-19 Mortality in the World')
+plt.xlabel('НNumber of countries')
+plt.ylabel('Mortality, %')
 plt.xticks(rotation=90, horizontalalignment='left', fontsize=12)
 plt.show()
