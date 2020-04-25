@@ -18,11 +18,13 @@ for subject in subjects:
         mortality2 = float(deaths)/(float(cured)+float(deaths))
     except ZeroDivisionError:
         mortality2 = float(deaths)
-    z1.append(mortality1*100)
-    z2.append(mortality2*100)
+    if mortality1 != 0:
+        z1.append(mortality1*100)
+    if mortality2 != 0:
+        z2.append(mortality2*100)
     
 plt.hist(z1) # If z1 - counts mortality1, if z2 - counts mortality2
-plt.title('Covid-19 Mortality')
+plt.title('Covid-19 Mortality in the World') 
 plt.xlabel('Mortality, %')
 plt.ylabel('Number of subjects')
 plt.xticks(range(0, 50, 5))

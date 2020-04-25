@@ -13,6 +13,7 @@ for subject in subjects:
     deaths = subject['deaths']
     cured = subject['cured']
     confirmed = subject['confirmed']
+    print('Город:', cities, 'Заболевших = ', confirmed, 'Выписанных = ', cured,  'Умерших = ', deaths)
     mortality1 = float(deaths)/float(confirmed)
     try:
         mortality2 = float(deaths)/(float(cured)+float(deaths))
@@ -21,9 +22,9 @@ for subject in subjects:
     z1.append(mortality1*100)
     z2.append(mortality2*100)
     
-plt.hist(z1) # If z1 - counts mortality1, if z2 - counts mortality2
-plt.title('Covid-19 Mortality')
-plt.xlabel('Mortality, %')
-plt.ylabel('Number of subjects')
+plt.hist(z2) # Если z1 - считает смертность, если z2 - cчитает летальность
+plt.title('Распределение летальности пациентов с Covid-19 по субъектам России') # Если считается летальность, заменить "смертность" на "летальность"
+plt.xlabel('Летальность, %') # Если считается летальность, заменить "Смертность" на "Летальность"
+plt.ylabel('Количество субъектов')
 plt.xticks(range(0, 50, 5))
 plt.show()
